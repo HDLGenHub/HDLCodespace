@@ -17,13 +17,15 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  gap: 20px;
+  border-style: groove;
+  border-color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
@@ -35,44 +37,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-*{margin: 0;}
-
-.header{
-    background: lawngreen;
-    text-align: left;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 4px;
-    font-family: sans-serif;
-}
-.control-panel{
-    background: lightblue;
-    text-align: right;
-    padding: 4px;
-    font-family: sans-serif;
-}
-.languages{
-    background: white;
-    border: 1px solid gray;
-}
-#editor{height: 400px;}
-.button-container{
-    text-align: right;
-    padding: 4px;
-}
-.btn{
-    background: lawngreen;
-    color: white;
-    padding: 8px;
-    border: 0;
-}
-.output{
-    padding: 4px;
-    border: 2px solid gray;
-    min-height: 100px;
-    width: 99%;
-    resize: none;
 }

@@ -1,3 +1,6 @@
+//const { default: axios } = require("axios");
+import axios from 'axios';
+
 let editor;
 
 window.onload = function(){
@@ -15,7 +18,12 @@ function changeLanguage(){
 }
 
 function execute(){
-    alert($("#languages").val())
+    var name = $("#languages").val();
+    var description = editor.getSession().getValue();
+    axios.post(`http://localhost:4000/Coding`, {
+        name,
+        description
+    })
     $.ajax({
         url: "../../php/htdocs/HDLCodeSpace/compiler.php",
         method: "POST",

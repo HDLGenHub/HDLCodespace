@@ -1,21 +1,26 @@
 import { useEffect, useState } from 'react';
 import './coding.css';
 import { Editor } from '@monaco-editor/react';
+import { execute } from '../api/compiler';
 
 const Coding=()=>{
     const [code, setCode] = useState('');
+    const [response, setResponse] = useState('');
 
 
+    /*
     useEffect(()=>{
         console.log(code);
     },[code]);
+    */
 
-    const handleExecute=()=>{
-        
+    const handleExecute=async()=>{
+        const res = await execute("python","3.10.0", code);
+        setResponse(res);
     }
 
     return(
-        <div>
+        <div className='codespace-container'>
             <div className='coding-container'>
                 <Editor 
                     height="80vh" 
@@ -28,9 +33,8 @@ const Coding=()=>{
                     />
             </div>
             <div className='running-container'>
-                <div>
-                    <button onClick={handleExecute}>Run</button>
-                </div>
+                <button onClick={handleExecute}>Run</button>
+                <h1>{JSON.stringify(response)}</h1>
             </div>
         </div>
     );
